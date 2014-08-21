@@ -1,0 +1,70 @@
+
+#interface: if
+#Sets the network interface to if.
+
+#dns-resolution: (yes|no)
+#Controls reverse lookup of IP addresses.
+dns-resolution:yes
+
+#port-resolution: (yes|no)
+#Controls conversion of port numbers to service names.
+port-resolution: no
+
+#filter-code: bpf
+#Sets the filter code to bpf.
+
+#show-bars: (yes|no)
+#Controls display of bar graphs.
+show-bars: yes
+
+#promiscuous: (yes|no)
+#Puts the interface into promiscuous mode.
+
+#port-display: (off|source-only|destination-only|on)
+#Controls display of port numbers.
+port-display: on
+
+#link-local: (yes|no)
+#Determines displaying of link-local IPv6 addresses.
+link-local: no
+
+#hide-source: (yes|no)
+#Hides source host names.
+hide-source: no
+
+#hide-destination: (yes|no)
+#Hides destination host names.
+hide-destination: no
+
+#use-bytes: (yes|no)
+#Use bytes for bandwidth display, rather than bits.
+use-byes: yes
+
+#sort: (2s|10s|40s|source|destination)
+#Sets which column is used to sort the display.
+sort: 40s
+
+#line-display: (two-line|one-line-both|one-line-sent|one-line-received)
+#Controls the appearance of each item in the display.
+line-display: two-line
+
+#show-totals: (yes|no)
+#Shows cumulative total for each item.
+show-totals: yes
+
+#log-scale: (yes|no)
+#Use a logarithmic scale for bar graphs.
+log-scale: no
+
+#max-bandwidth: bw
+#Fixes the maximum for the bar graph scale to bw, e.g. "10M". Note that the value has to always be in bits, regardless if the option to display in bytes has been chosen.
+max-bandwidth: 10M
+
+#net-filter: net/mask
+#Defines an IP network boundary for determining packet direction.
+
+#net-filter6: net6/mask6
+#Defines an IPv6 network boundary for determining packet direction.
+
+#screen-filter: regexp
+#Sets a regular expression to filter screen output.

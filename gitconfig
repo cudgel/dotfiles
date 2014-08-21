@@ -1,0 +1,7 @@
+[user]
+	name = Christopher Caldwell
+	email = cudgel@sparcitecture.net
+[push]
+	default = matching
+[pager]
+	log = cat
