@@ -28,6 +28,10 @@ eads () {
   ldapsearch -LLL -x -D "CN=caldwell,OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -b "OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -W -ZZ -h authad.gwu.edu "(cn=${1})"
 }
 
+eadg() {
+  ldapsearch -LLL -x -D "CN=caldwell,OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -b "OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -W -ZZ -h authad.gwu.edu "(&(objectcategory=person)(memberof=CN=${1},OU=Groups,OU=DIT,OU=GWResources,DC=ead,DC=gwu,DC=edu))"
+}
+
 stripcert() {
   openssl rsa -in $1 -out $1.stripped
 }

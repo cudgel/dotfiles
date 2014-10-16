@@ -1,7 +1,18 @@
 [user]
 	name = Christopher Caldwell
-	email = cudgel@sparcitecture.net
+	email = caldwell@gwu.edu
 [push]
 	default = matching
 [pager]
 	log = cat
+[http]
+	sslVerify = false
+[core]
+	editor = vim
+	autocrlf = input
+[help]
+	autocorrect = 1
+[color]
+	ui = auto
+[credential]
+	helper = cache
