@@ -1,6 +1,5 @@
 set t_Co=256
 
-set rtp+=/usr/local/lib/python3.4/dist-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim
 set background=dark
 
 execute pathogen#infect()
