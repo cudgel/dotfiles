@@ -35,3 +35,5 @@ let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 let g:flake8_max_line_length=120
+
+colors wombat
