@@ -40,7 +40,7 @@ elif [ `uname` = "Linux" ]; then
     TERM='xterm-256color'
     LS_OPTIONS="${LS_OPTIONS} --color"
     GREP_OPTIONS="${GREP_OPTIONS} --exclude=.svn"
-    BROWSER=/usr/bin/chromium
+    BROWSER=/usr/bin/firefox
 elif [ `uname` = "CYGWIN_NT-6.1-WOW64" ]; then
     EDITOR="vim"
     VISUAL=${EDITOR}

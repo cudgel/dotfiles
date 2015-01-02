@@ -1,6 +1,5 @@
 set t_Co=256
 
-set rtp+=/usr/local/lib/python3.4/dist-packages/Powerline-beta-py3.4.egg/powerline/bindings/vim
 set background=dark
 
 execute pathogen#infect()
@@ -14,9 +13,9 @@ filetype plugin indent on       " load file type plugins + indentation
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=4
+set tabstop=2
 set softtabstop=2
-set shiftwidth=2      " a tab is four spaces
+set shiftwidth=2                " a tab is four spaces
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -27,7 +26,11 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 set laststatus=2 " Always display the statusline in all windows
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+"set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
 
@@ -36,3 +39,5 @@ let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 let g:flake8_max_line_length=120
+
+colors wombat
