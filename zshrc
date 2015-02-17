@@ -72,6 +72,10 @@ zstyle -e :urlglobber url-other-schema '[[ $__remote_commands[(i)$words[1]] -le 
 
 bindkey "^R" history-incremental-search-backward
 
+if which tmux >/dev/null; then
+  tmux list-sessions
+fi
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
