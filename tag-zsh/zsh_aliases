@@ -49,7 +49,8 @@ if [ -d /opt/splunk ]; then
 fi
 
 if [ -d /opt/puppet ]; then
-  alias puppet='sudo /opt/puppet/bin/puppet'
+  alias puppet="sudo /opt/puppet/bin/puppet agent -t  | grep -v 'Info:'"
+  alias facter="sudo /opt/puppet/bin/facter"
 fi
 
 if [ -d /nsr ]; then
