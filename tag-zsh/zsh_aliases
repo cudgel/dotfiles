@@ -21,7 +21,7 @@ function go {
 }
 
 facts () {
-  curl -s -k -H "Accept: yaml" https://puppet.es.gwu.edu:8140/production/facts/${1} | egrep -v "\-\-\-|expiration|values" | perl -i -pe 's/\s{2}//g'
+  curl -X GET http://puppetdb.it.gwu.edu:8080/v3/facts --data-urlencode 'query=["=", "certname", "${1}"]'
 }
 
 eads () {
