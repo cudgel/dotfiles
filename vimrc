@@ -26,7 +26,7 @@ set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
 set laststatus=2 " Always display the statusline in all windows
-"set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
