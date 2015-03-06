@@ -6,9 +6,7 @@ alias wide='stty rows 24 columns 80'
 alias rgrep='grep --context=2 -siIrn'
 alias pgrep='pgrep -fl'
 alias gcat='grep -siIn --context=0 .'
-alias gmt='/opt/GWUmon/bin/gwmon --test'
 alias cp='cp --reflink=auto'
-alias sshw='ssh -l caldwell'
 
 # Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
 function go {
@@ -18,18 +16,6 @@ function go {
     source $GO_SHELL_SCRIPT
   fi
   unset GO_SHELL_SCRIPT
-}
-
-facts () {
-  curl -X GET http://puppetdb.it.gwu.edu:8080/v3/facts --data-urlencode 'query=["=", "certname", "${1}"]'
-}
-
-eads () {
-  ldapsearch -LLL -x -D "CN=caldwell,OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -b "OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -W -ZZ -h authad.gwu.edu "(cn=${1})"
-}
-
-eadg() {
-  ldapsearch -LLL -x -D "CN=caldwell,OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -b "OU=Accounts,OU=GWUsers,DC=ead,DC=gwu,DC=edu" -W -ZZ -h authad.gwu.edu "(&(objectcategory=person)(memberof=CN=${1},OU=Groups,OU=DIT,OU=GWResources,DC=ead,DC=gwu,DC=edu))"
 }
 
 stripcert() {
@@ -51,38 +37,7 @@ fi
 if [ -d /opt/puppet ]; then
   alias puppet="sudo /opt/puppet/bin/puppet agent -t  | grep -v 'Info:'"
   alias facter="sudo /opt/puppet/bin/facter"
-fi
-
-if [ -d /nsr ]; then
-  PRODIP=`echo $SSH_CONNECTION | awk '{print $3}'`
-
-  bkup() {
-    if [[ $PRODIP = 128* ]]; then
-      export DISK=DiskFB
-    else
-      export DISK=DiskVA
-    fi
-    sudo /nsr/bin/save -i -s yukon.backup.es.gwu.edu -l full -b $DISK $1
-  }
-
-  rkvr() {
-    sudo /nsr/bin/recover -s yukon.backup.es.gwu.edu
-  }
-
-  vinsr() {
-    sudo /nsr/sbin/nsradmin -s yukon.backup.es.gwu.edu "name: $1.backup.es.gwu.edu"
-  }
-
-  lsnsr() {
-    host=$1
-    if [ "$host" = "" ] ; then host=`hostname`; fi
-    sudo /nsr/sbin/mminfo -s yukon.backup.es.gwu.edu -t yesterday -c ${host}.backup.es.gwu.edu -v
-  }
-
-  catnsr() {
-    printf "\n\t\t\t`hostname`\n\n"
-    sudo bash -c "EDITOR=cat /nsr/sbin/nsradmin -s yukon.backup.es.gwu.edu \"name: `hostname`.backup.es.gwu.edu\"" | egrep "scheduled backup|comment|schedule|browse policy|retention policy|directive|group|save set"
-  }
+  alias plint="/opt/puppet/bin/puppet parser validate"
 fi
 
 peek () {
