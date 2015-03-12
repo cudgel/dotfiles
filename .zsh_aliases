@@ -35,7 +35,8 @@ if [ -d /opt/splunk ]; then
 fi
 
 if [ -d /opt/puppet ]; then
-  alias puppet="sudo /opt/puppet/bin/puppet agent -t  | grep -v 'Info:'"
+  alias puppet="sudo /opt/puppet/bin/puppet"
+  alias pat="sudo /opt/puppet/bin/puppet agent -t  | grep -v 'Info:'"
   alias facter="sudo /opt/puppet/bin/facter"
   alias plint="/opt/puppet/bin/puppet parser validate"
 fi
