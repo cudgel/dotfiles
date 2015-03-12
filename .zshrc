@@ -72,14 +72,6 @@ zstyle -e :urlglobber url-other-schema '[[ $__remote_commands[(i)$words[1]] -le 
 
 bindkey "^R" history-incremental-search-backward
 
-if which tmux >/dev/null; then
-  if [ -z "${TMUX}" ]; then
-    echo "tmux list-sessions:"
-    tmux list-sessions -F '  #{session_name} [#{session_windows}] (#{session_created_string}) - #{?session_attached,attached,not attached}'
-    echo ""
-  fi
-fi
-
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
