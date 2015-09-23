@@ -39,6 +39,7 @@ fi
 if [ -d /opt/puppet ]; then
   alias puppet="sudo /opt/puppet/bin/puppet"
   alias pat="sudo /opt/puppet/bin/puppet agent -t  | grep -v 'Info:'"
+  alias pte="sudo /opt/puppet/bin/puppet agent -t --environment"
   alias facter="sudo FACTERLIB=/var/opt/lib/pe-puppet/lib/facter /opt/puppet/bin/facter"
   alias plint="/opt/puppet/bin/puppet parser validate"
 fi
