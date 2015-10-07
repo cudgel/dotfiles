@@ -161,5 +161,15 @@ if [ `uname` = "SunOS" ]; then
 
 fi
 
+install-go() {
+  cd /tmp
+  git clone https://github.com/trentm/go-tool.git
+  cd go-tool
+  python setup.py install
+  sudo python setup.py install
+  cd
+  rm -rf /tmp/go-tool
+}
+
 # Local config
 [[ -f ~/.zsh_aliases.local ]] && source ~/.zsh_aliases.local

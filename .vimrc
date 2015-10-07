@@ -2,7 +2,8 @@ set t_Co=256
 
 set background=dark
 
-execute pathogen#infect()
+"" pathogen not installed by default
+"" execute pathogen#infect()
 
 set nocompatible                " choose no compatibility with legacy vi
 syntax enable
@@ -40,4 +41,4 @@ set completeopt=menuone,longest,preview
 
 let g:flake8_max_line_length=120
 
-colors wombat
+colors pablo
