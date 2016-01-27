@@ -1,3 +1,6 @@
+DOTFILES_ALIASES=TRUE
+export DOTFILES_ALIASES
+
 alias ls="ls ${LS_OPTIONS}"
 alias cl='clear'
 alias pso='ps -e -o user,comm | grep -v USER | sort'

@@ -1,3 +1,6 @@
+DOTFILES_ZSHRC=TRUE
+export DOTFILES_ZSHRC
+
 LS_OPTIONS="-ph"
 GREP_OPTIONS="--color=auto"
 LESS="-r"

@@ -1,3 +1,6 @@
+DOTFILES_ZSHRC_LOCAL=TRUE
+export DOTFILES_ZSHRC_LOCAL
+
 bindkey "^R" history-incremental-search-backward
 bindkey -v
 

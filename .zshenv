@@ -1,3 +1,6 @@
+DOTFILES_ZSHENV=TRUE
+export DOTFILES_ZSHENV
+
 umask 022
 
 if [ `uname` = "Darwin" ]; then
