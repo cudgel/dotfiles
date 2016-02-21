@@ -175,5 +175,9 @@ install-go() {
   rm -rf /tmp/go-tool
 }
 
+install-omz() {
+  sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
 # Local config
 [[ -f ~/.zsh_aliases.local ]] && source ~/.zsh_aliases.local

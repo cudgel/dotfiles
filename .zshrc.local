@@ -1,8 +1,7 @@
 DOTFILES_ZSHRC_LOCAL=TRUE
 export DOTFILES_ZSHRC_LOCAL
 
-bindkey -v
-bindkey "^R" history-incremental-search-backward
+plugins=(git gem history jsontools perl pip sudo vi-mode yum)
 
 if [ -z $HISTFILE ]; then
   HISTFILE=$HOME/.zsh_history
