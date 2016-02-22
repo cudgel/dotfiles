@@ -177,6 +177,7 @@ install-go() {
 
 install-omz() {
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  ln -sf ~/dotfiles/.zshrc ~/.zshrc
 }
 
 # Local config
