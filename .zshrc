@@ -95,6 +95,7 @@ setopt notify
 
 bindkey "^R" history-incremental-search-backward
 
+ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="theunraveler"
 plugins=(git gem history jsontools perl pip sudo vi-mode yum)
 source $ZSH/oh-my-zsh.sh
