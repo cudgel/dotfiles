@@ -1,1 +1,9 @@
 .git
+.go
+.oh-my-zsh
+*.local
+*.__tmp_go.sh
+.zsh_history
+.zcompdump*
+.zshrc.pre-oh-my-zsh
+.ssh
