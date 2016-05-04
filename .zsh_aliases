@@ -47,7 +47,7 @@ if [ -d /opt/puppetlabs ]; then
   alias plint="/opt/puppetlabs/bin/puppet parser validate"
   alias rmate="sudo PATH=/opt/puppetlabs/bin:$PATH ~/bin/rmate"
   alias fwrules='sudo iptables -nL --line-numbers'
-  alias noderules="fwrules | grep '* 6'""
+  alias noderules="fwrules | grep '* 6'"
   alias rolerules="fwrules | grep '* 5'"
 fi
 
