@@ -12,6 +12,7 @@ alias gcat='grep -siIn --context=0 .'
 alias cp='cp --reflink=auto'
 alias il='sudo iptables -nL --line-numbers'
 alias np='sudo netstat -tuanp'
+alias v='sudo vi'
 
 # Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
 function go {
@@ -36,8 +37,12 @@ tp() {
 }
 
 if [ -d /opt/splunk ]; then
-  alias splunk='sudo -u splunk /opt/splunk/bin/splunk'
+  $SPLUNK_HOME=/opt/splunk
+elseif [ -d /opt/splunkforwarder]; then
+  $SPLUNK_HOME=/opt/splunkforwarder
 fi
+alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk'
+alias outputs='splunk btool outputs list'
 
 if [ -d /opt/puppetlabs ]; then
   alias puppet="sudo /opt/puppetlabs/bin/puppet"
