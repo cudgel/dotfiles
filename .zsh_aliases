@@ -43,6 +43,7 @@ elseif [ -d /opt/splunkforwarder]; then
 fi
 alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
 alias outputs='splunk btool outputs list'
+alias btool='splunk btool check --debug | grep -v Checking | grep -v spec'
 
 if [ -d /opt/puppetlabs ]; then
   alias puppet="sudo /opt/puppetlabs/bin/puppet"
