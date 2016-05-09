@@ -37,9 +37,9 @@ tp() {
 }
 
 if [ -d /opt/splunk ]; then
-  SPLUNK_HOME=/opt/splunk
+  SPLUNK_HOME='/opt/splunk'
 elseif [ -d /opt/splunkforwarder]; then
-  SPLUNK_HOME=/opt/splunkforwarder
+  SPLUNK_HOME='/opt/splunkforwarder'
 fi
 alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
 alias outputs='splunk btool outputs list'
