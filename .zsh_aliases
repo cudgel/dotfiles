@@ -189,5 +189,11 @@ install-omz() {
   ln -sf ~/dotfiles/.zshrc ~/.zshrc
 }
 
+install-ratom() {
+  [ ! -e ~/bin ] && mkdir ~/bin
+  curl -o ~/bin/ratom https://raw.githubusercontent.com/aurora/rmate/master/rmate
+  chmod +x ~/bin/ratom
+}
+
 # Local config
 [[ -f ~/.zsh_aliases.local ]] && source ~/.zsh_aliases.local
