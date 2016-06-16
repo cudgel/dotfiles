@@ -28,8 +28,8 @@ stripcert() {
   openssl rsa -in $1 -out $1.stripped
 }
 
-getcert() {
-  echo QUIT | openssl s_client -connect $1 | sed -ne '/BEGIN CERT/,/END CERT/p'
+getcerts() {
+  echo QUIT | openssl s_client -connect $1 -showcerts
 }
 
 tp() {
@@ -38,7 +38,7 @@ tp() {
 
 if [ -d /opt/splunk ]; then
   SPLUNK_HOME='/opt/splunk'
-elif [ -d /opt/splunkforwarder]; then
+else
   SPLUNK_HOME='/opt/splunkforwarder'
 fi
 alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
@@ -49,7 +49,7 @@ if [ -d /opt/puppetlabs ]; then
   alias puppet="sudo /opt/puppetlabs/bin/puppet"
   alias pat="sudo /opt/puppetlabs/bin/puppet agent -t  | grep -v 'Info:'"
   alias pte="sudo /opt/puppetlabs/bin/puppet agent -t --environment"
-  alias facter="sudo FACTERLIB=/var/opt/lib/pe-puppet/lib/facter /opt/puppetlabs/bin/facter"
+  alias facter="sudo FACTERLIB=/opt/puppetlabs/puppet/cache/lib/facter /opt/puppetlabs/bin/facter"
   alias plint="/opt/puppetlabs/bin/puppet parser validate"
   alias rmate="sudo PATH=/opt/puppetlabs/bin:$PATH ~/bin/rmate"
   alias fwrules='sudo iptables -nL --line-numbers'
