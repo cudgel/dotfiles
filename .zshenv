@@ -53,5 +53,7 @@ export PATH
 
 LC_CTYPE=en_US.UTF-8; export LC_CTYPE
 
+source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
+
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
