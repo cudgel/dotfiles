@@ -38,16 +38,18 @@ tp() {
 
 if [ -d /opt/splunk ]; then
   SPLUNK_HOME='/opt/splunk'
-else
+elif [ -d /opt/splunkforwarder ]; then
   SPLUNK_HOME='/opt/splunkforwarder'
 fi
+
 alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
 alias outputs='splunk btool outputs list'
 alias btool='splunk btool check --debug | grep -v Checking | grep -v spec'
 
 if [ -d /opt/puppetlabs ]; then
   alias puppet="sudo /opt/puppetlabs/bin/puppet"
-  alias pat="sudo /opt/puppetlabs/bin/puppet agent -t  | grep -v 'Info:'"
+  alias puppetd="sudo /etc/init.d/puppet"
+  alias pat="sudo /opt/puppetlabs/bin/puppet agent -t  | grep -v 'Info:' | grep -v '\.rb\]\/ensure'"
   alias pte="sudo /opt/puppetlabs/bin/puppet agent -t --environment"
   alias facter="sudo FACTERLIB=/opt/puppetlabs/puppet/cache/lib/facter /opt/puppetlabs/bin/facter"
   alias plint="/opt/puppetlabs/bin/puppet parser validate"
