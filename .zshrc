@@ -2,7 +2,6 @@ DOTFILES_ZSHRC=TRUE
 export DOTFILES_ZSHRC
 
 LS_OPTIONS="-ph"
-GREP_OPTIONS="--color=auto"
 LESS="-r"
 
 if [ `uname` = "Darwin" ]; then
@@ -21,7 +20,6 @@ if [ `uname` = "Darwin" ]; then
         echo "DISPLAY has been set to ${DISPLAY}"
     fi
     LS_OPTIONS="${LS_OPTIONS}G"
-    GREP_OPTIONS="${GREP_OPTIONS} --exclude-dir=.svn"
 elif [ `uname` = "SunOS" ]; then
     EDITOR="vim"
     VISUAL=${EDITOR}
@@ -42,7 +40,6 @@ elif [ `uname` = "Linux" ]; then
     SVN_EDITOR="vim"
     TERM='xterm-256color'
     LS_OPTIONS="${LS_OPTIONS} --color"
-    GREP_OPTIONS="${GREP_OPTIONS} --exclude=.svn"
     BROWSER=/usr/bin/firefox
 elif [ `uname` = "CYGWIN_NT-6.1-WOW64" ]; then
     EDITOR="vim"
@@ -62,7 +59,6 @@ export TERM
 export VISUAL
 export CVSEDITOR
 export SVN_EDITOR
-export GREP_OPTIONS
 export LESS
 export CLICOLOR
 export BROWSER
