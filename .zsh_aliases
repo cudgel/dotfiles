@@ -50,7 +50,7 @@ if [ -d /opt/puppetlabs ]; then
   alias puppet="sudo /opt/puppetlabs/bin/puppet"
   alias puppetd="sudo /etc/init.d/puppet"
   alias pat="sudo /opt/puppetlabs/bin/puppet agent -t  | grep -v 'Info:' | grep -v '\.rb\]\/ensure'"
-  alias pte="sudo /opt/puppetlabs/bin/puppet agent -t --environment"
+  alias pte="sudo -E /opt/puppetlabs/bin/puppet agent --onetime --no-daemonize --environment"
   alias facter="sudo FACTERLIB=/opt/puppetlabs/puppet/cache/lib/facter /opt/puppetlabs/bin/facter"
   alias plint="/opt/puppetlabs/bin/puppet parser validate"
   alias rmate="sudo PATH=/opt/puppetlabs/bin:$PATH ~/bin/rmate"
