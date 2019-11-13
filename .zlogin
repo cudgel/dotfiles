@@ -14,4 +14,5 @@ if [ -d /opt/splunk ]; then
 
   echo "These are possible orphans:"
   echo $ORPHANS
+
 fi

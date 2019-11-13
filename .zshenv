@@ -53,5 +53,10 @@ export PATH
 
 LC_CTYPE=en_US.UTF-8; export LC_CTYPE
 
+if $(> /dev/null sudo cat $(puppet config print vardir)/state/agent_disabled.lock); then
+  export PUPPET_STATUS="disabled"
+  echo "Puppet agent is ${PUPPET_STATUS}"
+fi
+
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
