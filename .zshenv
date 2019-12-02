@@ -33,8 +33,12 @@ fi
 if [ -d /nsr ]; then
     PATH=${PATH}:/nsr/bin:/nsr/sbin
 fi
-if [ -d /opt/puppet ]; then
-  PATH=${PATH}:/opt/puppet/bin
+if [ -d /opt/puppetlabs ]; then
+  PATH=${PATH}:/opt/puppetlabs/bin
+  if $(> /dev/null sudo -u puppet cat $(sudo /opt/puppetlabs/bin/puppet config print vardir)/state/agent_disabled.lock); then
+    export PUPPET_STATUS="disabled"
+    echo "Puppet agent is ${PUPPET_STATUS}"
+  fi
 fi
 if [ -d /opt/splunk ]; then
   PATH=${PATH}:/opt/splunk
@@ -52,11 +56,6 @@ PATH=~/bin:${PATH}
 export PATH
 
 LC_CTYPE=en_US.UTF-8; export LC_CTYPE
-
-if $(> /dev/null sudo cat $(sudo /opt/puppetlabs/bin/puppet config print vardir)/state/agent_disabled.lock); then
-  export PUPPET_STATUS="disabled"
-  echo "Puppet agent is ${PUPPET_STATUS}"
-fi
 
 # Local config
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
