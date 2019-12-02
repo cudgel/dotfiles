@@ -35,7 +35,7 @@ if [ -d /nsr ]; then
 fi
 if [ -d /opt/puppetlabs ]; then
   PATH=${PATH}:/opt/puppetlabs/bin
-  if $(> /dev/null sudo -u puppet cat $(sudo /opt/puppetlabs/bin/puppet config print vardir)/state/agent_disabled.lock); then
+  if $(sudo cat /opt/puppetlabs/puppet/cache/state/agent_disabled.lock > /dev/null 2>&1); then
     export PUPPET_STATUS="disabled"
     echo "Puppet agent is ${PUPPET_STATUS}"
   fi
