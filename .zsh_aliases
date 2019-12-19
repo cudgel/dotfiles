@@ -36,12 +36,6 @@ tp() {
   nc -v -w 10 -z $1 $2
 }
 
-if [ -d /opt/splunk ]; then
-  SPLUNK_HOME='/opt/splunk'
-elif [ -d /opt/splunkforwarder ]; then
-  SPLUNK_HOME='/opt/splunkforwarder'
-fi
-
 alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
 alias outputs='splunk btool outputs list'
 alias btool='splunk btool check --debug | grep -v Checking | grep -v spec'

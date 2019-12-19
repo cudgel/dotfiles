@@ -41,8 +41,12 @@ if [ -d /opt/puppetlabs ]; then
   fi
 fi
 if [ -d /opt/splunk ]; then
-  PATH=${PATH}:/opt/splunk
+  SPLUNK_HOME='/opt/splunk'
+elif [ -d /opt/splunkforwarder ]; then
+  SPLUNK_HOME='/opt/splunkforwarder'
 fi
+export SPLUNK_HOME
+PATH=${PATH}:${SPLUNK_HOME}/bin
 
 GEM_HOME=~/.gems
 export GEM_HOME
