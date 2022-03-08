@@ -20,12 +20,6 @@ if [ `uname` = "Darwin" ]; then
         echo "DISPLAY has been set to ${DISPLAY}"
     fi
     LS_OPTIONS="${LS_OPTIONS}G"
-elif [ `uname` = "SunOS" ]; then
-    EDITOR="vim"
-    VISUAL=${EDITOR}
-    CVSEDITOR=${EDITOR}
-    SVN_EDITOR=${EDITOR}
-    TERM=dtterm
 elif [ `uname` = "Linux" ]; then
     # make less more friendly for non-text input files, see lesspipe(1)
     [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -41,11 +35,6 @@ elif [ `uname` = "Linux" ]; then
     TERM='xterm-256color'
     LS_OPTIONS="${LS_OPTIONS} --color"
     BROWSER=/usr/bin/firefox
-elif [ `uname` = "CYGWIN_NT-6.1-WOW64" ]; then
-    EDITOR="vim"
-    VISUAL=${EDITOR}
-    CVSEDITOR=${EDITOR}
-    SVN_EDITOR=${EDITOR}
 else
     EDITOR="vi"
     VISUAL=${EDITOR}

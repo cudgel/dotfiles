@@ -36,10 +36,11 @@ tp() {
   nc -v -w 10 -z $1 $2
 }
 
-alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
-alias outputs='splunk btool outputs list'
-alias btool='splunk btool check --debug | grep -v Checking | grep -v spec'
-
+if (( ${+SPLUNK_HOME} )); then
+  alias splunk="sudo -u splunk $SPLUNK_HOME/bin/splunk"
+  alias outputs='splunk btool outputs list'
+  alias btool='splunk btool check --debug | grep -v Checking | grep -v spec'
+fi
 if [ -d /opt/puppetlabs ]; then
   alias puppet="sudo /opt/puppetlabs/bin/puppet"
   alias puppetd="sudo /etc/init.d/puppet"
@@ -152,20 +153,6 @@ if [ `uname` = "Linux" ]; then
     if [ -d ${1} ]; then
       thunar ${1}
     fi
-  }
-
-fi
-
-if [ `uname` = "SunOS" ]; then
-
-  alias scli='sudo /opt/QLogic_Corporation/SANsurferCLI/scli'
-  alias powermt='sudo /etc/powermt'
-  alias ipfr='sudo ipf -FA -f /etc/ipf/ipf.conf'
-  alias netlstat='netstat -an -f inet | grep LISTEN | less'
-  alias du='du -sh *'
-
-  whichport() {
-    sudo snoop -d ${1} -s 1500 -x0 -c 1 'ether[20:2] = 0x2000'
   }
 
 fi
